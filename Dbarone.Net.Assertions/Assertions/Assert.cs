@@ -22,7 +22,7 @@ public class Assert
         }
         if (!actual.Equals(expected))
         {
-            throw new AssertionException($"{actual_name} should be equal to {expected}, but is equal to {actual}.");
+            throw new AssertionException($"{actual_name} ({actual}) should be equal to {expected}.");
         }
     }
 
@@ -55,7 +55,7 @@ public class Assert
     {
         if (obj != null)
         {
-            throw new AssertionException($"{obj_name} should be null but is not.");
+            throw new AssertionException($"{obj_name} should be null.");
         }
     }
 
@@ -69,7 +69,7 @@ public class Assert
     {
         if (obj == null)
         {
-            throw new AssertionException($"{obj_name} should not be null but is.");
+            throw new AssertionException($"{obj_name} should not be null.");
         }
     }
 
@@ -83,7 +83,7 @@ public class Assert
     {
         if (!expr)
         {
-            throw new AssertionException($"({expr_name}) should evaluate to true but evaluates to false.");
+            throw new AssertionException($"({expr_name}) should be true.");
         }
     }
 
@@ -97,7 +97,7 @@ public class Assert
     {
         if (expr)
         {
-            throw new AssertionException($"({expr_name}) should evaluate to false but evaluates to true.");
+            throw new AssertionException($"({expr_name}) should be false.");
         }
     }
 
@@ -117,7 +117,7 @@ public class Assert
 
         if (!actual.HasFlag(flag))
         {
-            throw new AssertionException($"{actual_name} should have flag ({flag}) set, but doesn't.");
+            throw new AssertionException($"{actual_name} ({actual}) should have flag ({flag}) set.");
         }
     }
 
@@ -137,8 +137,105 @@ public class Assert
 
         if (actual.HasFlag(flag))
         {
-            throw new AssertionException($"{actual_name} should not have flag ({flag}) set, but does.");
+            throw new AssertionException($"{actual_name} ({actual}) should not have flag ({flag}) set.");
         }
     }
 
+    /// <summary>
+    /// Asserts that a value is greater than an expected value.
+    /// </summary>
+    /// <typeparam name="T">The value type to assert. Must be IComparable.</typeparam>
+    /// <param name="actual">The value to assert.</param>
+    /// <param name="expected">The expected value.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the actual value is not greater than the expected value.</exception>
+    public static void GreaterThan<T>(T actual, T expected, [CallerArgumentExpression("actual")] string? actual_name = null) where T : IComparable
+    {
+        if (actual.CompareTo(expected) <= 0)
+        {
+            throw new AssertionException($"{actual_name} ({actual}) should be greater than expected ({expected}).");
+        }
+    }
+
+    /// <summary>
+    /// Asserts that a value is not greater than an expected value.
+    /// </summary>
+    /// <typeparam name="T">The value type to assert. Must be IComparable.</typeparam>
+    /// <param name="actual">The value to assert.</param>
+    /// <param name="expected">The expected value.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the actual value is greater than the expected value.</exception>
+    public static void NotGreaterThan<T>(T actual, T expected, [CallerArgumentExpression("actual")] string? actual_name = null) where T : IComparable
+    {
+        if (actual.CompareTo(expected) > 0)
+        {
+            throw new AssertionException($"{actual_name} ({actual}) should not be greater than expected ({expected}).");
+        }
+    }
+
+    /// <summary>
+    /// Asserts that a value is less than an expected value.
+    /// </summary>
+    /// <typeparam name="T">The value type to assert. Must be IComparable.</typeparam>
+    /// <param name="actual">The value to assert.</param>
+    /// <param name="expected">The expected value.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the actual value is not less than the expected value.</exception>
+    public static void LessThan<T>(T actual, T expected, [CallerArgumentExpression("actual")] string? actual_name = null) where T : IComparable
+    {
+        if (actual.CompareTo(expected) >= 0)
+        {
+            throw new AssertionException($"{actual_name} ({actual}) should be less than expected ({expected}).");
+        }
+    }
+
+    /// <summary>
+    /// Asserts that a value is not less than an expected value.
+    /// </summary>
+    /// <typeparam name="T">The value type to assert. Must be IComparable.</typeparam>
+    /// <param name="actual">The value to assert.</param>
+    /// <param name="expected">The expected value.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the actual value is less than the expected value.</exception>
+    public static void NotLessThan<T>(T actual, T expected, [CallerArgumentExpression("actual")] string? actual_name = null) where T : IComparable
+    {
+        if (actual.CompareTo(expected) < 0)
+        {
+            throw new AssertionException($"{actual_name} ({actual}) should not be less than expected ({expected}).");
+        }
+    }
+
+    /// <summary>
+    /// Asserts that a value is between 2 values.
+    /// </summary>
+    /// <typeparam name="T">The value type to assert. Must be IComparable.</typeparam>
+    /// <param name="actual">The value to assert.</param>
+    /// <param name="min">The minimum value.</param>
+    /// <param name="max">The maximum value.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the actual value is between the min and max values.</exception>
+    public static void Between<T>(T actual, T min, T max, [CallerArgumentExpression("actual")] string? actual_name = null) where T : IComparable
+    {
+        if (!(actual.CompareTo(min) >= 0 && actual.CompareTo(max) <= 0))
+        {
+            throw new AssertionException($"{actual_name} ({actual}) should be between ({min}) and ({max}).");
+        }
+    }
+
+    /// <summary>
+    /// Asserts that a value is between 2 values.
+    /// </summary>
+    /// <typeparam name="T">The value type to assert. Must be IComparable.</typeparam>
+    /// <param name="actual">The value to assert.</param>
+    /// <param name="min">The minimum value.</param>
+    /// <param name="max">The maximum value.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the actual value is between the min and max values.</exception>
+    public static void NotBetween<T>(T actual, T min, T max, [CallerArgumentExpression("actual")] string? actual_name = null) where T : IComparable
+    {
+        if ((actual.CompareTo(min) >= 0 && actual.CompareTo(max) <= 0))
+        {
+            throw new AssertionException($"{actual_name} ({actual}) should not be between ({min}) and ({max}).");
+        }
+    }
 }

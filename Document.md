@@ -90,6 +90,17 @@ Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.A
 Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the enum value does not have the flag set.
 
 ---
+### M:Dbarone.Net.Assertions.Assert.Greater``1(``0,``0,System.String)
+ Asserts that a value is greater than an expected value. 
+|Name | Description |
+|-----|------|
+|actual: |The value to assert.|
+|expected: |The expected value.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is not greater than the expected value.
+
+---
 
 
 >## T:Dbarone.Net.Assertions.AssertionException
