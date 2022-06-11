@@ -3,7 +3,7 @@ using System;
 using System.Runtime.CompilerServices;
 
 /// <summary>
-/// Enables a user to perform a variety of assertions. The assertions are evaluated in all configurations (debug and release). If the assertion succeeds, the code continues. If the assertion fails, an `AssertionException` is thrown.
+/// Applies assertions to the state of objects. The assertions are evaluated in all configurations (debug and release). If the assertion succeeds, the code continues. If the assertion fails, an `AssertionException` is thrown.
 /// </summary>
 public class Assert
 {
@@ -275,4 +275,39 @@ public class Assert
         }
     }
 
+   /// <summary>
+    /// Asserts that an actual value is assignable from a specific type.
+    /// </summary>
+    /// <param name="actual">The value to assert.</param>
+    /// <param name="expected">The expected type.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the actual value is not assignable from the specified type.</exception>
+    public static void AssignableFrom(object actual, Type expected, [CallerArgumentExpression("actual")] string? actual_name = null)
+    {
+        if (actual == null)
+        {
+            throw new AssertionException($"{actual_name} should not be null.");
+        }
+        if (actual.GetType().IsAssignableFrom(expected)){
+            throw new AssertionException($"{actual_name} ({actual.GetType().Name}) should be assignable from ({expected.Name}).");
+        }
+    }
+
+    /// <summary>
+    /// Asserts that an actual value is not assignable from a specific type.
+    /// </summary>
+    /// <param name="actual">The value to assert.</param>
+    /// <param name="expected">The expected type.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the actual value is assignable from the specified type.</exception>
+    public static void NotAssignableFrom(object actual, Type expected, [CallerArgumentExpression("actual")] string? actual_name = null)
+    {
+        if (actual == null)
+        {
+            throw new AssertionException($"{actual_name} should not be null.");
+        }
+        if (actual.GetType().IsAssignableFrom(expected)){
+            throw new AssertionException($"{actual_name} should not be assignable from ({expected.Name}).");
+        }
+    }
 }

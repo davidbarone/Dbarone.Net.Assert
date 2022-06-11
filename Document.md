@@ -3,7 +3,7 @@
 
 >## T:Dbarone.Net.Assertions.Assert
 
- Enables a user to perform a variety of assertions. The assertions are evaluated in all configurations (debug and release). If the assertion succeeds, the code continues. If the assertion fails, an `AssertionException` is thrown. 
+ Applies assertions to the state of objects. The assertions are evaluated in all configurations (debug and release). If the assertion succeeds, the code continues. If the assertion fails, an `AssertionException` is thrown. 
 
 ---
 ### M:Dbarone.Net.Assertions.Assert.Equals(System.Object,System.Object,System.String)
@@ -178,6 +178,28 @@ Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.A
 |actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
 
 Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is not the specified type.
+
+---
+### M:Dbarone.Net.Assertions.Assert.AssignableFrom(System.Object,System.Type,System.String)
+ Asserts that an actual value is assignable from a specific type. 
+|Name | Description |
+|-----|------|
+|actual: |The value to assert.|
+|expected: |The expected type.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is not assignable from the specified type.
+
+---
+### M:Dbarone.Net.Assertions.Assert.NotAssignableFrom(System.Object,System.Type,System.String)
+ Asserts that an actual value is not assignable from a specific type. 
+|Name | Description |
+|-----|------|
+|actual: |The value to assert.|
+|expected: |The expected type.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is assignable from the specified type.
 
 ---
 

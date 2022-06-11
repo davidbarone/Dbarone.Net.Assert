@@ -43,7 +43,6 @@ public class AssertionTests
 
     [Theory]
     [InlineData((1 == 1))]
-    [InlineData((1 != 2))]
     public void True_Success(bool expr)
     {
         DbAssert.True(expr);
@@ -51,7 +50,6 @@ public class AssertionTests
 
     [Theory]
     [InlineData((1 == 2))]
-    [InlineData((1 != 1))]
     public void True_Failure(bool expr)
     {
         Assert.Throws<AssertionException>(() => DbAssert.True(expr));
@@ -201,4 +199,31 @@ public class AssertionTests
         Assert.Throws<AssertionException>(() => DbAssert.NotIsType(d, typeof(Dog)));
     }
 
+   [Fact]
+    public void AssignableFrom_Success()
+    {
+        var d = new Dog();
+        DbAssert.AssignableFrom(d, typeof(Animal));
+    }
+
+    [Fact]
+    public void AssignableFrom_Failure()
+    {
+        var h = new House();
+        Assert.Throws<AssertionException>(() => DbAssert.IsType(h, typeof(Animal)));
+    }
+
+    [Fact]
+    public void NotAssignableFrom_Success()
+    {
+        var h = new House();
+        DbAssert.NotAssignableFrom(h, typeof(Animal));
+    }
+
+    [Fact]
+    public void NotAssignableFrom_Failure()
+    {
+        var d = new Dog();
+        Assert.Throws<AssertionException>(() => DbAssert.NotAssignableFrom(d, typeof(Dog)));
+    }
 }
