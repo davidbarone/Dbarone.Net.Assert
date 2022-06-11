@@ -3,7 +3,7 @@ using System;
 using System.Runtime.CompilerServices;
 
 /// <summary>
-/// A simple assertion library.
+/// Performs assertions.
 /// </summary>
 public class Assert
 {
