@@ -3,8 +3,10 @@
  Performs assertions. 
 
 ---
+
 ### M:Dbarone.Net.Assert.Assert.Equals(System.Object,System.Object,System.String)
- Checks an actual value equals an expected value. 
+Checks an actual value equals an expected value. 
+
 |Name | Description |
 |-----|------|
 |actual: |The actual object value.|
@@ -12,7 +14,9 @@
 |actual_name: |The calling variable name.|
 
 [T:AssertionException|T:AssertionException]: 
+
 ---
+
 ### M:Dbarone.Net.Assert.Assert.NotEquals(System.Object,System.Object,System.String)
  Checks an actual value does not equal an expected value. 
 |Name | Description |
