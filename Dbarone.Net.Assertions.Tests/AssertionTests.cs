@@ -3,6 +3,21 @@ using DbAssert = Dbarone.Net.Assertions.Assert;
 using System;
 using Xunit;
 
+public class Animal
+{
+
+}
+
+public class Dog : Animal
+{
+
+}
+
+public class House
+{
+
+}
+
 public class AssertionTests
 {
     [Theory]
@@ -156,6 +171,34 @@ public class AssertionTests
     public void NotBetween_Failure(IComparable actual, IComparable min, IComparable max)
     {
         Assert.Throws<AssertionException>(() => DbAssert.NotBetween(actual, min, max));
+    }
+
+    [Fact]
+    public void IsType_Success()
+    {
+        var d = new Dog();
+        DbAssert.IsType(d, typeof(Dog));
+    }
+
+    [Fact]
+    public void IsType_Failure()
+    {
+        var d = new Dog();
+        Assert.Throws<AssertionException>(() => DbAssert.IsType(d, typeof(Animal)));
+    }
+
+    [Fact]
+    public void NotIsType_Success()
+    {
+        var d = new Dog();
+        DbAssert.NotIsType(d, typeof(Animal));
+    }
+
+    [Fact]
+    public void NotIsType_Failure()
+    {
+        var d = new Dog();
+        Assert.Throws<AssertionException>(() => DbAssert.NotIsType(d, typeof(Dog)));
     }
 
 }

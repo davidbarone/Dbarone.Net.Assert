@@ -90,7 +90,7 @@ Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.A
 Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the enum value does not have the flag set.
 
 ---
-### M:Dbarone.Net.Assertions.Assert.Greater``1(``0,``0,System.String)
+### M:Dbarone.Net.Assertions.Assert.GreaterThan``1(``0,``0,System.String)
  Asserts that a value is greater than an expected value. 
 |Name | Description |
 |-----|------|
@@ -99,6 +99,85 @@ Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.A
 |actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
 
 Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is not greater than the expected value.
+
+---
+### M:Dbarone.Net.Assertions.Assert.NotGreaterThan``1(``0,``0,System.String)
+ Asserts that a value is not greater than an expected value. 
+|Name | Description |
+|-----|------|
+|actual: |The value to assert.|
+|expected: |The expected value.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is greater than the expected value.
+
+---
+### M:Dbarone.Net.Assertions.Assert.LessThan``1(``0,``0,System.String)
+ Asserts that a value is less than an expected value. 
+|Name | Description |
+|-----|------|
+|actual: |The value to assert.|
+|expected: |The expected value.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is not less than the expected value.
+
+---
+### M:Dbarone.Net.Assertions.Assert.NotLessThan``1(``0,``0,System.String)
+ Asserts that a value is not less than an expected value. 
+|Name | Description |
+|-----|------|
+|actual: |The value to assert.|
+|expected: |The expected value.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is less than the expected value.
+
+---
+### M:Dbarone.Net.Assertions.Assert.Between``1(``0,``0,``0,System.String)
+ Asserts that a value is between 2 values. 
+|Name | Description |
+|-----|------|
+|actual: |The value to assert.|
+|min: |The minimum value.|
+|max: |The maximum value.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is between the min and max values.
+
+---
+### M:Dbarone.Net.Assertions.Assert.NotBetween``1(``0,``0,``0,System.String)
+ Asserts that a value is between 2 values. 
+|Name | Description |
+|-----|------|
+|actual: |The value to assert.|
+|min: |The minimum value.|
+|max: |The maximum value.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is between the min and max values.
+
+---
+### M:Dbarone.Net.Assertions.Assert.IsType(System.Object,System.Type,System.String)
+ Asserts that an actual value is a specific type. 
+|Name | Description |
+|-----|------|
+|actual: |The value to assert.|
+|expected: |The expected type.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is not the specified type.
+
+---
+### M:Dbarone.Net.Assertions.Assert.NotIsType(System.Object,System.Type,System.String)
+ Asserts that an actual value is not a specific type. 
+|Name | Description |
+|-----|------|
+|actual: |The value to assert.|
+|expected: |The expected type.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is not the specified type.
 
 ---
 

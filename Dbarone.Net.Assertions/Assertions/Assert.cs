@@ -238,4 +238,41 @@ public class Assert
             throw new AssertionException($"{actual_name} ({actual}) should not be between ({min}) and ({max}).");
         }
     }
+
+    /// <summary>
+    /// Asserts that an actual value is a specific type.
+    /// </summary>
+    /// <param name="actual">The value to assert.</param>
+    /// <param name="expected">The expected type.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the actual value is not the specified type.</exception>
+    public static void IsType(object actual, Type expected, [CallerArgumentExpression("actual")] string? actual_name = null)
+    {
+        if (actual == null)
+        {
+            throw new AssertionException($"{actual_name} should not be null.");
+        }
+        if (actual.GetType()!= expected){
+            throw new AssertionException($"{actual_name} ({actual.GetType().Name}) should be of type ({expected.Name}).");
+        }
+    }
+
+    /// <summary>
+    /// Asserts that an actual value is not a specific type.
+    /// </summary>
+    /// <param name="actual">The value to assert.</param>
+    /// <param name="expected">The expected type.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the actual value is not the specified type.</exception>
+    public static void NotIsType(object actual, Type expected, [CallerArgumentExpression("actual")] string? actual_name = null)
+    {
+        if (actual == null)
+        {
+            throw new AssertionException($"{actual_name} should not be null.");
+        }
+        if (actual.GetType()== expected){
+            throw new AssertionException($"{actual_name} should not be of type ({expected.Name}).");
+        }
+    }
+
 }
