@@ -1,3 +1,4 @@
+namespace Dbarone.Net.Assertions;
 using System;
 
 /// <summary>

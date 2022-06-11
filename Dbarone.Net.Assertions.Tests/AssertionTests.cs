@@ -1,15 +1,27 @@
-namespace Dbarone.Net.Assert.Tests;
-using DbAssert = Dbarone.Net.Assert.Assert;
+namespace Dbarone.Net.Assertions.Tests;
+using DbAssert = Dbarone.Net.Assertions.Assert;
 using Xunit;
 
-
-public class AssertTests
+public class AssertionTests
 {
-    [Fact]
-    public void Equal()
+    [Theory]
+    [InlineData(10,10)]
+    [InlineData(true,true)]
+    [InlineData("ABC","ABC")]
+    public void Equal_Success(object actual, object expected)
     {
-        var foo = 10;
-        DbAssert.Equals(foo, 10);
+        DbAssert.Equals(actual, expected);
+    }
+    
+    [Theory]
+    [InlineData(null,null)]
+    [InlineData(10,null)]
+    [InlineData(null,10)]
+    [InlineData(10,9)]
+    [InlineData(true,false)]
+    [InlineData("ABC","ABCD")]
+    public void Equal_Failure(object actual, object expected){
+        Assert.Throws<AssertionException>(() => DbAssert.Equals(actual, expected));
     }
 
     [Fact]

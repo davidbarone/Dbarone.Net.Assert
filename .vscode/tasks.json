@@ -10,7 +10,7 @@
       "args": [
         "script",
         "./Scripts/Document.csx",
-        "${workspaceFolder}/Dbarone.Net.Assert/bin/Debug/net6.0/Dbarone.Net.Assert.xml",
+        "${workspaceFolder}/Dbarone.Net.Assertions/bin/Debug/net6.0/Dbarone.Net.Assertions.xml",
         "${workspaceFolder}/Document.md"
       ],
       "problemMatcher": [],
@@ -26,7 +26,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/Dbarone.Net.Assert.Tests/Dbarone.Net.Assert.Tests.csproj",
+        "${workspaceFolder}/Dbarone.Net.Assertions.Tests/Dbarone.Net.Assertions.Tests.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -38,7 +38,7 @@
       "type": "process",
       "args": [
         "publish",
-        "${workspaceFolder}/Dbarone.Net.Assert.Tests/Dbarone.Net.Assert.Tests.csproj",
+        "${workspaceFolder}/Dbarone.Net.Assertions.Tests/Dbarone.Net.Assertions.Tests.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -52,7 +52,7 @@
         "watch",
         "run",
         "--project",
-        "${workspaceFolder}/Dbarone.Net.Assert.Tests/Dbarone.Net.Assert.Tests.csproj"
+        "${workspaceFolder}/Dbarone.Net.Assertions.Tests/Dbarone.Net.Assertions.Tests.csproj"
       ],
       "problemMatcher": "$msCompile"
     },

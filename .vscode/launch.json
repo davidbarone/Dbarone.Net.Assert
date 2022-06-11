@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Dbarone.Net.Assert.Tests/bin/Debug/net6.0/Dbarone.Net.Assert.Tests.dll",
+            "program": "${workspaceFolder}/Dbarone.Net.Assertions.Tests/bin/Debug/net6.0/Dbarone.Net.Assertions.Tests.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Dbarone.Net.Assert.Tests",
+            "cwd": "${workspaceFolder}/Dbarone.Net.Assertions.Tests",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false

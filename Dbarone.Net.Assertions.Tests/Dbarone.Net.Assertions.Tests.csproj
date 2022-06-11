@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Dbarone.Net.Assert\Dbarone.Net.Assert.csproj" />
+    <ProjectReference Include="..\Dbarone.Net.Assertions\Dbarone.Net.Assertions.csproj" />
   </ItemGroup>
 
 </Project>

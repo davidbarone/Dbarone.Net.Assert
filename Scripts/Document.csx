@@ -36,10 +36,10 @@ static var d = new Func<string, XElement, string[]>((att, node) => new[] {
 
 static var templates = new Dictionary<string, string>  {
                     {"doc", "# {0}\n{1}"},
-                    {"type", "## {0}\n{1}\n---\n"},
+                    {"type", "\n\n>## {0}\n\n{1}\n---\n"},
                     {"field", "### {0}\n{1}\n---\n"},
                     {"property", "### {0}\n{1}\n---\n"},
-                    {"method", "### {0}\n{1}{2}{3}{4}---\n"},
+                    {"method", "### {0}\n{1}{2}{3}{4}\n---\n"},
                     {"event", "### {0}\n{1}\n---\n"},
                     {"summary", "{0}\n"},
                     {"remarks", "\n>{0}\n"},
@@ -47,7 +47,7 @@ static var templates = new Dictionary<string, string>  {
                     {"seePage", "[[{1}|{0}]]"},
                     {"seeAnchor", "[{1}]({0})"},
                     {"param", "|{0}: |{1}|\n" },
-                    {"exception", "\n[[{0}|{0}]]: {1}\n" },
+                    {"exception", "\nException thrown: [{0}](#{0}): {1}\n" },
                     {"returns", "Returns: {0}\n"},
                     {"none", ""}  };
 

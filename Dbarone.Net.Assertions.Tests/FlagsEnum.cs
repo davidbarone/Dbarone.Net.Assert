@@ -1,4 +1,4 @@
-namespace Dbarone.Net.Assert.Tests;
+namespace Dbarone.Net.Assertions.Tests;
 
 public enum FlagsEnum
 {
