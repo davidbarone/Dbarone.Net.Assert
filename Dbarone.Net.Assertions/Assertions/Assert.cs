@@ -419,5 +419,24 @@ public class Assert
         }
     }
 
+    /// <summary>
+    /// Asserts that all elements of a collection satisfy a predicate.
+    /// </summary>
+    /// <typeparam name="T">The type of the collection elements.</typeparam>
+    /// <param name="actual">A collection.</param>
+    /// <param name="predicate">The predicate to evaluate on each member of the collection.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <param name="predicate_name">The calling predicate name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if any of the elements in the collection does not satisfy the predicate.</exception>
+   public static void All<T>(IEnumerable<T> actual, Func<T, bool> predicate, [CallerArgumentExpression("actual")] string? actual_name = null, [CallerArgumentExpression("predicate")] string? predicate_name = null){
+        if (actual == null)
+        {
+            throw new AssertionException($"{actual_name} should not be null.");
+        }
+        if (actual.Where(a=>!predicate(a)).Any()){
+            throw new AssertionException($"{actual_name} should satisfy the predicate ({predicate_name}) for all elements.");
+        }
+    }
+
     #endregion
 }

@@ -317,5 +317,21 @@ public class AssertionTests
         Assert.Throws<AssertionException>(() => DbAssert.NotSingle(actual));
     }
 
+    [Theory]
+    [InlineData(new int[] { 1, 2, 3 })]
+    public void All_Success(IEnumerable<int> actual)
+    {
+        Func<int, bool> func = (value) => value > 0;
+        DbAssert.All(actual, func);
+    }
+
+    [Theory]
+    [InlineData(new int[] { 1, 2, 3 })]
+    public void All_Failure(IEnumerable<int> actual)
+    {
+        Func<int, bool> func = (value) => value > 1;
+        Assert.Throws<AssertionException>(() => DbAssert.All(actual, func));
+    }
+
     #endregion
 }

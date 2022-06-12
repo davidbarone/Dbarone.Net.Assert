@@ -264,6 +264,18 @@ Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.A
 Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the collection does have exactly one element.
 
 ---
+### M:Dbarone.Net.Assertions.Assert.All``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.String,System.String)
+ Asserts that all elements of a collection satisfy a predicate. 
+|Name | Description |
+|-----|------|
+|actual: |A collection.|
+|predicate: |The predicate to evaluate on each member of the collection.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+|predicate_name: |The calling predicate name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if any of the elements in the collection does not satisfy the predicate.
+
+---
 
 
 >## T:Dbarone.Net.Assertions.AssertionException
