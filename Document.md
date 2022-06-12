@@ -202,6 +202,28 @@ Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.A
 Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is assignable from the specified type.
 
 ---
+### M:Dbarone.Net.Assertions.Assert.Contains``1(System.Collections.Generic.IEnumerable{``0},``0,System.String)
+ Asserts that a collection contains an element with a specified value. 
+|Name | Description |
+|-----|------|
+|actual: |A collection.|
+|expected: |The expected element value.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the collection does not contain the specified element.
+
+---
+### M:Dbarone.Net.Assertions.Assert.NotContains``1(System.Collections.Generic.IEnumerable{``0},``0,System.String)
+ Asserts that a collection does not contain an element with a specified value. 
+|Name | Description |
+|-----|------|
+|actual: |A collection.|
+|expected: |The expected element value.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the collection contains the specified element.
+
+---
 
 
 >## T:Dbarone.Net.Assertions.AssertionException

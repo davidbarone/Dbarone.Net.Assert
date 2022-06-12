@@ -1,5 +1,7 @@
 namespace Dbarone.Net.Assertions;
 using System;
+using System.Collections;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 /// <summary>
@@ -310,4 +312,44 @@ public class Assert
             throw new AssertionException($"{actual_name} should not be assignable from ({expected.Name}).");
         }
     }
+
+    #region Collections
+
+    /// <summary>
+    /// Asserts that a collection contains an element with a specified value.
+    /// </summary>
+    /// <typeparam name="T">The type of the collection elements.</typeparam>
+    /// <param name="actual">A collection.</param>
+    /// <param name="expected">The expected element value.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the collection does not contain the specified element.</exception>
+    public static void Contains<T>(IEnumerable<T> actual, T expected, [CallerArgumentExpression("actual")] string? actual_name = null){
+        if (actual == null)
+        {
+            throw new AssertionException($"{actual_name} should not be null.");
+        }
+        if (!actual.Contains(expected)){
+            throw new AssertionException($"{actual_name} should contain element ({expected}).");
+        }
+    }
+
+    /// <summary>
+    /// Asserts that a collection does not contain an element with a specified value.
+    /// </summary>
+    /// <typeparam name="T">The type of the collection elements.</typeparam>
+    /// <param name="actual">A collection.</param>
+    /// <param name="expected">The expected element value.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the collection contains the specified element.</exception>
+   public static void NotContains<T>(IEnumerable<T> actual, T expected, [CallerArgumentExpression("actual")] string? actual_name = null){
+        if (actual == null)
+        {
+            throw new AssertionException($"{actual_name} should not be null.");
+        }
+        if (actual.Contains(expected)){
+            throw new AssertionException($"{actual_name} should not contain element ({expected}).");
+        }
+    }
+    
+    #endregion
 }

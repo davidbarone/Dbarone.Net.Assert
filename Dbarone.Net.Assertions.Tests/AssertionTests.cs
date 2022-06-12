@@ -1,6 +1,7 @@
 namespace Dbarone.Net.Assertions.Tests;
 using DbAssert = Dbarone.Net.Assertions.Assert;
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 public class Animal
@@ -199,7 +200,7 @@ public class AssertionTests
         Assert.Throws<AssertionException>(() => DbAssert.NotIsType(d, typeof(Dog)));
     }
 
-   [Fact]
+    [Fact]
     public void AssignableFrom_Success()
     {
         var d = new Dog();
@@ -226,4 +227,33 @@ public class AssertionTests
         var d = new Dog();
         Assert.Throws<AssertionException>(() => DbAssert.NotAssignableFrom(d, typeof(Dog)));
     }
+
+    [Theory]
+    [InlineData(new object[] { 1, 2, 3 }, 3)]
+    public void Contains_Success(IEnumerable<object> actual, object expected)
+    {
+        DbAssert.Contains(actual, expected);
+    }
+
+    [Theory]
+    [InlineData(new object[] { 1, 2, 3 }, 4)]
+    public void Contains_Failure(IEnumerable<object> actual, object expected)
+    {
+        Assert.Throws<AssertionException>(() => DbAssert.Contains(actual, expected));
+    }
+
+    [Theory]
+    [InlineData(new object[] { 1, 2, 3 }, 4)]
+    public void NotContains_Success(IEnumerable<object> actual, object expected)
+    {
+        DbAssert.NotContains(actual, expected);
+    }
+
+    [Theory]
+    [InlineData(new object[] { 1, 2, 3 }, 3)]
+    public void NotContains_Failure(IEnumerable<object> actual, object expected)
+    {
+        Assert.Throws<AssertionException>(() => DbAssert.NotContains(actual, expected));
+    }
+
 }
