@@ -5,6 +5,20 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+   <PackageId>Dbarone.Net.Assertions</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>David Barone</Authors>
+    <Company>Dbarone.com</Company>
+    <Description>A simple .NET assertion library.</Description>
+    <RepositoryUrl>https://github.com/davidbarone/Dbarone.Net.Assertions</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/davidbarone/Dbarone.Net.Assertions</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>  
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="..\Documentation.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+  
 </Project>

@@ -6,7 +6,7 @@ using Xunit;
 
 public class Animal
 {
-
+    public string Name { get; set; } = default!;
 }
 
 public class Dog : Animal
@@ -334,4 +334,26 @@ public class AssertionTests
     }
 
     #endregion
-}
+
+    #region Messages
+
+    public void DoSomething(string myValue){
+        DbAssert.Equals(myValue, "ABC");
+    }
+
+    [Fact]
+    public void Exception_TestMessageUsingMethodParam(){
+        var ex = Assert.Throws<AssertionException>(() => DoSomething("ABCD"));
+        Assert.Equal("myValue (ABCD) should be equal to (ABC).", ex.Message);
+    }
+
+  [Fact]
+    public void Exception_TestMessageUsingProperty(){
+        Dog dog = new Dog();
+        dog.Name = "Fido";
+
+        var ex = Assert.Throws<AssertionException>(() => DbAssert.Equals(dog.Name, "Rover"));
+        Assert.Equal("dog.Name (Fido) should be equal to (Rover).", ex.Message);
+    }
+    #endregion
+ }

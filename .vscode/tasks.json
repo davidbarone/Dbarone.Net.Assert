@@ -11,7 +11,7 @@
         "script",
         "./Scripts/Document.csx",
         "${workspaceFolder}/Dbarone.Net.Assertions/bin/Debug/net6.0/Dbarone.Net.Assertions.xml",
-        "${workspaceFolder}/Document.md"
+        "${workspaceFolder}/Documentation.md"
       ],
       "problemMatcher": [],
       "group": {

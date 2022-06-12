@@ -1,6 +1,5 @@
 namespace Dbarone.Net.Assertions;
 using System;
-using System.Collections;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
@@ -24,7 +23,7 @@ public class Assert
         }
         if (!actual.Equals(expected))
         {
-            throw new AssertionException($"{actual_name} ({actual}) should be equal to {expected}.");
+            throw new AssertionException($"{actual_name} ({actual}) should be equal to ({expected}).");
         }
     }
 
@@ -43,7 +42,7 @@ public class Assert
         }
         if (actual.Equals(expected))
         {
-            throw new AssertionException($"{actual_name} should not be equal to {expected}.");
+            throw new AssertionException($"{actual_name} should not be equal to ({expected}).");
         }
     }
 
