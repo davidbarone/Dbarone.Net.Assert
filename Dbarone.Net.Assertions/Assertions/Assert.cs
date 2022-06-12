@@ -350,6 +350,74 @@ public class Assert
             throw new AssertionException($"{actual_name} should not contain element ({expected}).");
         }
     }
-    
+
+    /// <summary>
+    /// Asserts that a collection is empty.
+    /// </summary>
+    /// <typeparam name="T">The type of the collection elements.</typeparam>
+    /// <param name="actual">A collection.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the collection is not empty.</exception>
+    public static void Empty<T>(IEnumerable<T> actual, [CallerArgumentExpression("actual")] string? actual_name = null){
+        if (actual == null)
+        {
+            throw new AssertionException($"{actual_name} should not be null.");
+        }
+        if (actual.Any()){
+            throw new AssertionException($"{actual_name} should be empty.");
+        }
+    }
+
+    /// <summary>
+    /// Asserts that a collection is not empty.
+    /// </summary>
+    /// <typeparam name="T">The type of the collection elements.</typeparam>
+    /// <param name="actual">A collection.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the collection is empty.</exception>
+   public static void NotEmpty<T>(IEnumerable<T> actual, [CallerArgumentExpression("actual")] string? actual_name = null){
+        if (actual == null)
+        {
+            throw new AssertionException($"{actual_name} should not be null.");
+        }
+        if (!actual.Any()){
+            throw new AssertionException($"{actual_name} should not be empty.");
+        }
+    }
+
+    /// <summary>
+    /// Asserts that a collection has exactly one element.
+    /// </summary>
+    /// <typeparam name="T">The type of the collection elements.</typeparam>
+    /// <param name="actual">A collection.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the collection does not have exactly one element.</exception>
+    public static void Single<T>(IEnumerable<T> actual, [CallerArgumentExpression("actual")] string? actual_name = null){
+        if (actual == null)
+        {
+            throw new AssertionException($"{actual_name} should not be null.");
+        }
+        if (actual.Count() != 1){
+            throw new AssertionException($"{actual_name} should have exactly one element.");
+        }
+    }
+
+    /// <summary>
+    /// Asserts that a collection does not have exactly one element.
+    /// </summary>
+    /// <typeparam name="T">The type of the collection elements.</typeparam>
+    /// <param name="actual">A collection.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the collection does have exactly one element.</exception>
+   public static void NotSingle<T>(IEnumerable<T> actual, [CallerArgumentExpression("actual")] string? actual_name = null){
+        if (actual == null)
+        {
+            throw new AssertionException($"{actual_name} should not be null.");
+        }
+        if (actual.Count() == 1){
+            throw new AssertionException($"{actual_name} should not have exactly one element.");
+        }
+    }
+
     #endregion
 }

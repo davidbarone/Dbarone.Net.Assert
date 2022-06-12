@@ -228,6 +228,8 @@ public class AssertionTests
         Assert.Throws<AssertionException>(() => DbAssert.NotAssignableFrom(d, typeof(Dog)));
     }
 
+    #region Collections
+
     [Theory]
     [InlineData(new object[] { 1, 2, 3 }, 3)]
     public void Contains_Success(IEnumerable<object> actual, object expected)
@@ -256,4 +258,64 @@ public class AssertionTests
         Assert.Throws<AssertionException>(() => DbAssert.NotContains(actual, expected));
     }
 
+    [Theory]
+    [InlineData(new int[] { })]
+    public void Empty_Success(IEnumerable<int> actual)
+    {
+        DbAssert.Empty(actual);
+    }
+
+    [Theory]
+    [InlineData(new int[] { 1 })]
+    public void Empty_Failure(IEnumerable<int> actual)
+    {
+        Assert.Throws<AssertionException>(() => DbAssert.Empty(actual));
+    }
+
+    [Theory]
+    [InlineData(new int[] { 1 })]
+    public void NotEmpty_Success(IEnumerable<int> actual)
+    {
+        DbAssert.NotEmpty(actual);
+    }
+
+    [Theory]
+    [InlineData(new int[] { })]
+    public void NotEmpty_Failure(IEnumerable<int> actual)
+    {
+        Assert.Throws<AssertionException>(() => DbAssert.NotEmpty(actual));
+    }
+
+    [Theory]
+    [InlineData(new int[] { 1 })]
+    public void Single_Success(IEnumerable<int> actual)
+    {
+        DbAssert.Single(actual);
+    }
+
+    [Theory]
+    [InlineData(new int[] { 1, 2 })]
+    [InlineData(new int[] { })]
+    public void Single_Failure(IEnumerable<int> actual)
+    {
+        Assert.Throws<AssertionException>(() => DbAssert.Single(actual));
+    }
+
+    [Theory]
+    [InlineData(new int[] { 1, 2 })]
+    [InlineData(new int[] { })]
+
+    public void NotSingle_Success(IEnumerable<int> actual)
+    {
+        DbAssert.NotSingle(actual);
+    }
+
+    [Theory]
+    [InlineData(new int[] { 1 })]
+    public void NotSingle_Failure(IEnumerable<int> actual)
+    {
+        Assert.Throws<AssertionException>(() => DbAssert.NotSingle(actual));
+    }
+
+    #endregion
 }

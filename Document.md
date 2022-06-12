@@ -224,6 +224,46 @@ Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.A
 Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the collection contains the specified element.
 
 ---
+### M:Dbarone.Net.Assertions.Assert.Empty``1(System.Collections.Generic.IEnumerable{``0},System.String)
+ Asserts that a collection is empty. 
+|Name | Description |
+|-----|------|
+|actual: |A collection.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the collection is not empty.
+
+---
+### M:Dbarone.Net.Assertions.Assert.NotEmpty``1(System.Collections.Generic.IEnumerable{``0},System.String)
+ Asserts that a collection is not empty. 
+|Name | Description |
+|-----|------|
+|actual: |A collection.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the collection is empty.
+
+---
+### M:Dbarone.Net.Assertions.Assert.Single``1(System.Collections.Generic.IEnumerable{``0},System.String)
+ Asserts that a collection has exactly one element. 
+|Name | Description |
+|-----|------|
+|actual: |A collection.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the collection does not have exactly one element.
+
+---
+### M:Dbarone.Net.Assertions.Assert.NotSingle``1(System.Collections.Generic.IEnumerable{``0},System.String)
+ Asserts that a collection does not have exactly one element. 
+|Name | Description |
+|-----|------|
+|actual: |A collection.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the collection does have exactly one element.
+
+---
 
 
 >## T:Dbarone.Net.Assertions.AssertionException
