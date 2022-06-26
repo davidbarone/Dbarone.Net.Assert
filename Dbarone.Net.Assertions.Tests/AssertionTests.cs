@@ -37,6 +37,7 @@ public class AssertionTests
     [InlineData(10, 9)]
     [InlineData(true, false)]
     [InlineData("ABC", "ABCD")]
+    [InlineData((short)123, (int)123)]  // different types. should fail.
     public void Equal_Failure(object actual, object expected)
     {
         Assert.Throws<AssertionException>(() => DbAssert.Equals(actual, expected));
