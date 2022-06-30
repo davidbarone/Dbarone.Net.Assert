@@ -438,4 +438,26 @@ public class Assert
     }
 
     #endregion
+
+    #region Timing
+
+    /// <summary>
+    /// Asserts that an action completes within a certain timeframe. Note that the action will be allowed to complete regardless of whether or not it completes within the asserted timeout.
+    /// </summary>
+    /// <param name="action">The action to check.</param>
+    /// <param name="timeout">The maximum timeframe the action can run for.</param>
+    /// <param name="action_name">The calling action variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the action completes in a longer time that expected.</exception>
+    public static void CompletesIn(Action action, TimeSpan timeout, [CallerArgumentExpression("action")] string? action_name = null){
+        DateTime start = DateTime.Now;
+        action.Invoke();
+        DateTime end = DateTime.Now;
+        TimeSpan actual = end - start;
+
+        if (actual > timeout) {
+            throw new AssertionException($"{action_name} should complete within {timeout}, but completed in {actual}.");
+        }
+    }
+
+    #endregion
 }

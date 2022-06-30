@@ -3,6 +3,7 @@ using DbAssert = Dbarone.Net.Assertions.Assert;
 using System;
 using System.Collections.Generic;
 using Xunit;
+using System.Threading;
 
 public class Animal
 {
@@ -17,6 +18,14 @@ public class Dog : Animal
 public class House
 {
 
+}
+
+public class Pauser
+{
+    public static void PauseForSeconds(int seconds)
+    {
+        Thread.Sleep(seconds * 1000);
+    }
 }
 
 public class AssertionTests
@@ -338,23 +347,47 @@ public class AssertionTests
 
     #region Messages
 
-    public void DoSomething(string myValue){
+    public void DoSomething(string myValue)
+    {
         DbAssert.Equals(myValue, "ABC");
     }
 
     [Fact]
-    public void Exception_TestMessageUsingMethodParam(){
+    public void Exception_TestMessageUsingMethodParam()
+    {
         var ex = Assert.Throws<AssertionException>(() => DoSomething("ABCD"));
         Assert.Equal("myValue (ABCD) should be equal to (ABC).", ex.Message);
     }
 
-  [Fact]
-    public void Exception_TestMessageUsingProperty(){
+    [Fact]
+    public void Exception_TestMessageUsingProperty()
+    {
         Dog dog = new Dog();
         dog.Name = "Fido";
 
         var ex = Assert.Throws<AssertionException>(() => DbAssert.Equals(dog.Name, "Rover"));
         Assert.Equal("dog.Name (Fido) should be equal to (Rover).", ex.Message);
     }
+
     #endregion
- }
+
+    #region Timing
+
+    [Theory]
+    [InlineData(1, 2)]
+    [InlineData(2, 3)]
+    public void CompletesIn_Success(int actual, int expected)
+    {
+        DbAssert.CompletesIn(() => Pauser.PauseForSeconds(actual), TimeSpan.FromSeconds(expected));
+    }
+
+    [Theory]
+    [InlineData(2, 1)]
+    [InlineData(3, 2)]
+    public void CompletesIn_Failure(int actual, int expected)
+    {
+        Assert.Throws<AssertionException>(() => DbAssert.CompletesIn(() => Pauser.PauseForSeconds(actual), TimeSpan.FromSeconds(expected)));
+    }
+
+    #endregion
+}

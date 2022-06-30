@@ -276,6 +276,17 @@ Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.A
 Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if any of the elements in the collection does not satisfy the predicate.
 
 ---
+### M:Dbarone.Net.Assertions.Assert.CompletesIn(System.Action,System.TimeSpan,System.String)
+ Asserts that an action completes within a certain timeframe. Note that the action will be allowed to complete regardless of whether or not it completes within the asserted timeout. 
+|Name | Description |
+|-----|------|
+|action: |The action to check.|
+|timeout: |The maximum timeframe the action can run for.|
+|action_name: |The calling action variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the action completes in a longer time that expected.
+
+---
 
 
 >## T:Dbarone.Net.Assertions.AssertionException

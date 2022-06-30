@@ -5,7 +5,7 @@ This is an assertion framework that uses a simple `Assert` static class to perfo
 
 ## Documentation
 
-For full details of the library, please refer to the [documentation](./Documentation.md).
+For full details of the library, please refer to the [documentation](https://github.com/davidbarone/Dbarone.Net.Assertions/blob/main/Documentation.md).
 
 ## Sample code
 
