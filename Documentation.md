@@ -112,6 +112,28 @@ Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.A
 Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is greater than the expected value.
 
 ---
+### M:Dbarone.Net.Assertions.Assert.GreaterThanEquals``1(``0,``0,System.String)
+ Asserts that a value is greater than or equal to an expected value. 
+|Name | Description |
+|-----|------|
+|actual: |The value to assert.|
+|expected: |The expected value.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is not greater than or equal to the expected value.
+
+---
+### M:Dbarone.Net.Assertions.Assert.NotGreaterThanEquals``1(``0,``0,System.String)
+ Asserts that a value is not greater than or equal to an expected value. 
+|Name | Description |
+|-----|------|
+|actual: |The value to assert.|
+|expected: |The expected value.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is greater than or equal to the expected value.
+
+---
 ### M:Dbarone.Net.Assertions.Assert.LessThan``1(``0,``0,System.String)
  Asserts that a value is less than an expected value. 
 |Name | Description |
@@ -132,6 +154,28 @@ Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.A
 |actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
 
 Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is less than the expected value.
+
+---
+### M:Dbarone.Net.Assertions.Assert.LessThanEquals``1(``0,``0,System.String)
+ Asserts that a value is less than or equal to an expected value. 
+|Name | Description |
+|-----|------|
+|actual: |The value to assert.|
+|expected: |The expected value.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is not less than or equal to the expected value.
+
+---
+### M:Dbarone.Net.Assertions.Assert.NotLessThanEquals``1(``0,``0,System.String)
+ Asserts that a value is not less than or equal to an expected value. 
+|Name | Description |
+|-----|------|
+|actual: |The value to assert.|
+|expected: |The expected value.|
+|actual_name: |The calling variable name (do not use - this is automatically populated by the library).|
+
+Exception thrown: [T:Dbarone.Net.Assertions.AssertionException](#T:Dbarone.Net.Assertions.AssertionException): Throws an exception if the actual value is less than or equal to the expected value.
 
 ---
 ### M:Dbarone.Net.Assertions.Assert.Between``1(``0,``0,``0,System.String)

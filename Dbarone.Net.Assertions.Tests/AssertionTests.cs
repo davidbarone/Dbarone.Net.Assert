@@ -102,6 +102,7 @@ public class AssertionTests
     }
 
     [Theory]
+    [InlineDataAttribute(1, 1)]
     [InlineDataAttribute(1, 2)]
     public void GreaterThan_Failure(IComparable actual, IComparable expected)
     {
@@ -121,6 +122,36 @@ public class AssertionTests
     public void NotGreaterThan_Failure(IComparable actual, IComparable expected)
     {
         Assert.Throws<AssertionException>(() => DbAssert.NotGreaterThan(actual, expected));
+    }
+
+    [Theory]
+    [InlineDataAttribute(2, 1)]
+    [InlineDataAttribute(2, 2)]
+    public void GreaterThanEquals_Success(IComparable actual, IComparable expected)
+    {
+        DbAssert.GreaterThanEquals(actual, expected);
+    }
+
+    [Theory]
+    [InlineDataAttribute(1, 2)]
+    public void GreaterThanEquals_Failure(IComparable actual, IComparable expected)
+    {
+        Assert.Throws<AssertionException>(() => DbAssert.GreaterThanEquals(actual, expected));
+    }
+
+    [Theory]
+    [InlineDataAttribute(2, 3)]
+    public void NotGreaterThanEquals_Success(IComparable actual, IComparable expected)
+    {
+        DbAssert.NotGreaterThanEquals(actual, expected);
+    }
+
+    [Theory]
+    [InlineDataAttribute(2, 1)]
+    [InlineDataAttribute(2, 2)]
+    public void NotGreaterThanEquals_Failure(IComparable actual, IComparable expected)
+    {
+        Assert.Throws<AssertionException>(() => DbAssert.NotGreaterThanEquals(actual, expected));
     }
 
     [Theory]
@@ -150,6 +181,36 @@ public class AssertionTests
     public void NotLessThan_Failure(IComparable actual, IComparable expected)
     {
         Assert.Throws<AssertionException>(() => DbAssert.NotLessThan(actual, expected));
+    }
+
+    [Theory]
+    [InlineDataAttribute(1, 2)]
+    [InlineDataAttribute(2, 2)]
+    public void LessThanEquals_Success(IComparable actual, IComparable expected)
+    {
+        DbAssert.LessThanEquals(actual, expected);
+    }
+
+    [Theory]
+    [InlineDataAttribute(2, 1)]
+    public void LessThanEquals_Failure(IComparable actual, IComparable expected)
+    {
+        Assert.Throws<AssertionException>(() => DbAssert.LessThanEquals(actual, expected));
+    }
+
+    [Theory]
+    [InlineDataAttribute(2, 1)]
+    public void NotLessThanEquals_Success(IComparable actual, IComparable expected)
+    {
+        DbAssert.NotLessThanEquals(actual, expected);
+    }
+
+    [Theory]
+    [InlineDataAttribute(1, 2)]
+    [InlineDataAttribute(2, 2)]
+    public void NotLessThanEquals_Failure(IComparable actual, IComparable expected)
+    {
+        Assert.Throws<AssertionException>(() => DbAssert.NotLessThanEquals(actual, expected));
     }
 
     [Theory]

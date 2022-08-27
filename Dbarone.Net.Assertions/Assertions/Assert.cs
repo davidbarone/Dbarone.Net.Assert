@@ -175,6 +175,38 @@ public class Assert
     }
 
     /// <summary>
+    /// Asserts that a value is greater than or equal to an expected value.
+    /// </summary>
+    /// <typeparam name="T">The value type to assert. Must be IComparable.</typeparam>
+    /// <param name="actual">The value to assert.</param>
+    /// <param name="expected">The expected value.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the actual value is not greater than or equal to the expected value.</exception>
+    public static void GreaterThanEquals<T>(T actual, T expected, [CallerArgumentExpression("actual")] string? actual_name = null) where T : IComparable
+    {
+        if (actual.CompareTo(expected) < 0)
+        {
+            throw new AssertionException($"{actual_name} ({actual}) should be greater than or equal to expected ({expected}).");
+        }
+    }
+
+    /// <summary>
+    /// Asserts that a value is not greater than or equal to an expected value.
+    /// </summary>
+    /// <typeparam name="T">The value type to assert. Must be IComparable.</typeparam>
+    /// <param name="actual">The value to assert.</param>
+    /// <param name="expected">The expected value.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the actual value is greater than or equal to the expected value.</exception>
+    public static void NotGreaterThanEquals<T>(T actual, T expected, [CallerArgumentExpression("actual")] string? actual_name = null) where T : IComparable
+    {
+        if (actual.CompareTo(expected) >= 0)
+        {
+            throw new AssertionException($"{actual_name} ({actual}) should not be greater than or equal to expected ({expected}).");
+        }
+    }
+
+    /// <summary>
     /// Asserts that a value is less than an expected value.
     /// </summary>
     /// <typeparam name="T">The value type to assert. Must be IComparable.</typeparam>
@@ -203,6 +235,38 @@ public class Assert
         if (actual.CompareTo(expected) < 0)
         {
             throw new AssertionException($"{actual_name} ({actual}) should not be less than expected ({expected}).");
+        }
+    }
+
+    /// <summary>
+    /// Asserts that a value is less than or equal to an expected value.
+    /// </summary>
+    /// <typeparam name="T">The value type to assert. Must be IComparable.</typeparam>
+    /// <param name="actual">The value to assert.</param>
+    /// <param name="expected">The expected value.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the actual value is not less than or equal to the expected value.</exception>
+    public static void LessThanEquals<T>(T actual, T expected, [CallerArgumentExpression("actual")] string? actual_name = null) where T : IComparable
+    {
+        if (actual.CompareTo(expected) > 0)
+        {
+            throw new AssertionException($"{actual_name} ({actual}) should be less than or equal to expected ({expected}).");
+        }
+    }
+
+    /// <summary>
+    /// Asserts that a value is not less than or equal to an expected value.
+    /// </summary>
+    /// <typeparam name="T">The value type to assert. Must be IComparable.</typeparam>
+    /// <param name="actual">The value to assert.</param>
+    /// <param name="expected">The expected value.</param>
+    /// <param name="actual_name">The calling variable name (do not use - this is automatically populated by the library).</param>
+    /// <exception cref="AssertionException">Throws an exception if the actual value is less than or equal to the expected value.</exception>
+    public static void NotLessThanEquals<T>(T actual, T expected, [CallerArgumentExpression("actual")] string? actual_name = null) where T : IComparable
+    {
+        if (actual.CompareTo(expected) <= 0)
+        {
+            throw new AssertionException($"{actual_name} ({actual}) should not be less than or equal to expected ({expected}).");
         }
     }
 
